@@ -44,6 +44,10 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_jg2e1")
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h54ih"]
+radius = 1.4428711
+height = 4.3274536
+
 [node name="Player" type="CharacterBody3D" unique_id=854243993]
 motion_mode = 1
 script = ExtResource("1_s0eop")
@@ -61,3 +65,7 @@ transform = Transform3D(-1, -8.742278e-08, 3.821371e-15, 0, -4.371139e-08, -1, 8
 
 [node name="thrust2" parent="pivot" unique_id=1361824069 instance=ExtResource("3_h54ih")]
 transform = Transform3D(-1, -8.742278e-08, 3.821371e-15, 0, -4.371139e-08, -1, 8.742278e-08, -1, 4.371139e-08, -1.3691167, 0, -1.2188486)
+
+[node name="collisionShape3d" type="CollisionShape3D" parent="." unique_id=1586903678]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 2.388199e-08, -0.5463562)
+shape = SubResource("CapsuleShape3D_h54ih")
