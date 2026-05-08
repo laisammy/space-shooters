@@ -20,3 +20,5 @@ static func get_percentage_string(num: float, total: float) -> String:
 	if total != 0 and not is_nan(num) and not is_nan(total):
 		percent = (num / total) * 100
 	return "%.0f / %.0f (%.1f%%)" % [num, total, percent]
+	
+	
