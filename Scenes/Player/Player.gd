@@ -7,7 +7,7 @@ class_name Player
 const GROUP_PLAYER: String = "player"
 
 @export var flySpeed: float = 30.0
-@export var rollSpeed: float = 25.0
+@export var rollSpeed: float = 20.0
 @export var tiltSpeed: float = 20.0
 @export var maxTiltAngle: float = 20.0
 @export var maxRollAngle: float = 30.0

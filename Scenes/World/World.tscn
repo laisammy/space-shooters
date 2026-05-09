@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://gtsnv33a1cye" path="res://Scenes/Player/Player.tscn" id="7_87yka"]
 [ext_resource type="PackedScene" uid="uid://b5s5dito4uyp1" path="res://Scenes/Spawner/Spawner.tscn" id="8_kjd5s"]
 [ext_resource type="PackedScene" uid="uid://3rjr52ngqks4" path="res://Scenes/VFX/shadedWall/shadedWall.tscn" id="8_p7pgw"]
+[ext_resource type="PackedScene" uid="uid://biqjyglvo2a3a" path="res://Scenes/playerCamera/playerCamera.tscn" id="9_p7pgw"]
 [ext_resource type="PackedScene" uid="uid://2gv3qb8l4xt0" path="res://Scenes/GameUi/GameUi.tscn" id="11_0d0er"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_j0p05"]
@@ -56,9 +57,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -200)
 
 [node name="GameUi" parent="." unique_id=130752423 instance=ExtResource("11_0d0er")]
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1013444852]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.136, 31.82)
-
 [node name="TestTimer" type="Timer" parent="." unique_id=251320546]
 wait_time = 3.0
 autostart = true
@@ -99,5 +97,8 @@ shape = SubResource("WorldBoundaryShape3D_kuxid")
 [node name="collisionShape3d2" type="CollisionShape3D" parent="walls/wallCollider" unique_id=10584173]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 40, 0)
 shape = SubResource("WorldBoundaryShape3D_ng1ea")
+
+[node name="playerCamera" parent="." unique_id=1654207048 instance=ExtResource("9_p7pgw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0069322586, -5.9604645e-08, 0.003786981)
 
 [connection signal="timeout" from="TestTimer" to="." method="_on_test_timer_timeout"]
