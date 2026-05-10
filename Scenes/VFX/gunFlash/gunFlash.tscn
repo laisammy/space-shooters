@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://d1d013gejgyay"]
+
+[ext_resource type="Texture2D" uid="uid://bnlher4kdm0hh" path="res://Assets/Particles/magic_05.png" id="1_v1ipb"]
+
+[sub_resource type="Curve" id="Curve_14sxv"]
+_data = [Vector2(0, 0.26966298), 0.0, 0.0, 0, 0, Vector2(0.6486487, 0.97752815), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_lyylu"]
+curve = SubResource("Curve_14sxv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_q1ey0"]
+gravity = Vector3(0, 0, 0)
+scale_min = 0.79999995
+scale_max = 1.1999999
+scale_curve = SubResource("CurveTexture_lyylu")
+color = Color(2.055, 1.427549, 0.3451961, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kdguu"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_v1ipb")
+
+[sub_resource type="QuadMesh" id="QuadMesh_fvi0l"]
+material = SubResource("StandardMaterial3D_kdguu")
+size = Vector2(2, 2)
+
+[node name="gunFlash" type="GPUParticles3D" unique_id=1572113418]
+emitting = false
+amount = 1
+lifetime = 0.2
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_q1ey0")
+draw_pass_1 = SubResource("QuadMesh_fvi0l")

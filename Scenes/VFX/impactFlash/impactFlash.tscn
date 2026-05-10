@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://b2qkayj6h3gnq"]
+
+[ext_resource type="Texture2D" uid="uid://5530qje21ilg" path="res://Assets/Particles/scorch_02.png" id="1_j21on"]
+[ext_resource type="AudioStream" uid="uid://bj8lyqc2dns1c" path="res://Assets/Audio/Effects/583451__hit.wav" id="2_t5fh6"]
+[ext_resource type="Script" uid="uid://dqpudaincprfg" path="res://Scenes/VFX/impactFlash/impactFlash.gd" id="2_xo6lk"]
+
+[sub_resource type="Gradient" id="Gradient_xo6lk"]
+offsets = PackedFloat32Array(0, 0.59836066)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0.42745098)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_iktfs"]
+gradient = SubResource("Gradient_xo6lk")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7jx3f"]
+emission_shape = 1
+emission_sphere_radius = 0.15
+angle_min = -44.99999
+angle_max = 45.00001
+gravity = Vector3(0, 0, 0)
+radial_accel_min = 0.19999775
+radial_accel_max = 0.39999774
+scale_min = 1.5
+scale_max = 3.0
+color = Color(2.5032542, 1.7425057, 1.0102855, 1)
+color_ramp = SubResource("GradientTexture1D_iktfs")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mnvwl"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_j21on")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_67cd3"]
+material = SubResource("StandardMaterial3D_mnvwl")
+size = Vector2(2, 2)
+
+[node name="impactFlash" type="GPUParticles3D" unique_id=1710342120]
+emitting = false
+amount = 6
+lifetime = 0.5
+one_shot = true
+randomness = 0.85
+process_material = SubResource("ParticleProcessMaterial_7jx3f")
+draw_pass_1 = SubResource("QuadMesh_67cd3")
+script = ExtResource("2_xo6lk")
+
+[node name="impactSound" type="AudioStreamPlayer3D" parent="." unique_id=2031269620]
+stream = ExtResource("2_t5fh6")
+unit_size = 40.0
