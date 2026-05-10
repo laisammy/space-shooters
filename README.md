@@ -7,3 +7,6 @@ Week 6's features:
 - Space environment
 - Simple visual effects and background music
 - Player boundaries
+
+Controls:
+WASD to move the fighter jet
