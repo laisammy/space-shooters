@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bpq2wvf6he07o" path="res://Scenes/Player/Player.gd" id="1_s0eop"]
 [ext_resource type="Texture2D" uid="uid://jmdemuo4m6ba" path="res://Assets/Models/PlayerShip_tex03-512.png" id="2_ft8w5"]
+[ext_resource type="PackedScene" uid="uid://bs5udnhl66eip" path="res://Scenes/Gun/gun.tscn" id="2_jmcll"]
+[ext_resource type="AudioStream" uid="uid://odqg565qvaui" path="res://Assets/Audio/Effects/Blaster1_short.wav" id="3_4wape"]
 [ext_resource type="PackedScene" uid="uid://dcxdqiunpdj3q" path="res://Scenes/VFX/thrust/thrust.tscn" id="3_h54ih"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_04r6b"]
@@ -54,6 +56,17 @@ script = ExtResource("1_s0eop")
 
 [node name="pivot" type="Node3D" parent="." unique_id=980764339]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="gun" parent="pivot" unique_id=129111583 node_paths=PackedStringArray("muzzles") instance=ExtResource("2_jmcll")]
+debounce = 0.18
+muzzles = [NodePath("../muzzle1"), NodePath("../muzzle2")]
+soundEffect = ExtResource("3_4wape")
+
+[node name="muzzle1" type="Node3D" parent="pivot" unique_id=1981069177]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6578104, -0.22159636, 1.6947278)
+
+[node name="muzzle2" type="Node3D" parent="pivot" unique_id=1815322006]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.65483516, -0.22159636, 1.6947278)
 
 [node name="M3_Ship_3" type="MeshInstance3D" parent="pivot" unique_id=1702444540]
 transform = Transform3D(0.100000024, 0, 0, 0, 0, -0.100000024, 0, 0.100000024, 0, 0, 0, 0)

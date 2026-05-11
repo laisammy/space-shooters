@@ -31,7 +31,7 @@ size = Vector2(2, 2)
 [node name="gunFlash" type="GPUParticles3D" unique_id=1572113418]
 emitting = false
 amount = 1
-lifetime = 0.2
+lifetime = 0.15000000000000002
 one_shot = true
 process_material = SubResource("ParticleProcessMaterial_q1ey0")
 draw_pass_1 = SubResource("QuadMesh_fvi0l")

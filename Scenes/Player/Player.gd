@@ -11,8 +11,13 @@ const GROUP_PLAYER: String = "player"
 @export var tiltSpeed: float = 20.0
 @export var maxTiltAngle: float = 20.0
 @export var maxRollAngle: float = 30.0
+@onready var gun: gun = $pivot/gun
 
 @onready var pivot: Node3D = $pivot
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("shoot"):
+		shoot()
 
 func _enter_tree() -> void:
 	add_to_group(GROUP_PLAYER)
@@ -32,3 +37,6 @@ func updateShipRotation(rollInput: float, pitchInput: float, delta: float) -> vo
 	var targetPitch = pitchInput * maxTiltAngle
 	pivot.rotation_degrees.x = lerp(pivot.rotation_degrees.x, targetPitch, delta * tiltSpeed)
 	pivot.rotation_degrees.y = lerp(pivot.rotation_degrees.z, targetRoll, delta * rollSpeed)
+
+func shoot() -> void:
+	gun.shoot()
