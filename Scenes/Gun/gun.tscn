@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bs5udnhl66eip"]
+
+[ext_resource type="Script" uid="uid://cmh43xmssg22l" path="res://Scenes/Gun/gun.gd" id="1_goajg"]
+
+[node name="gun" type="Node3D" unique_id=129111583]
+script = ExtResource("1_goajg")
+
+[node name="effect" type="AudioStreamPlayer3D" parent="." unique_id=1581984299]

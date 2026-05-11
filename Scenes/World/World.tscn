@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b5s5dito4uyp1" path="res://Scenes/Spawner/Spawner.tscn" id="8_kjd5s"]
 [ext_resource type="PackedScene" uid="uid://3rjr52ngqks4" path="res://Scenes/VFX/shadedWall/shadedWall.tscn" id="8_p7pgw"]
 [ext_resource type="PackedScene" uid="uid://biqjyglvo2a3a" path="res://Scenes/playerCamera/playerCamera.tscn" id="9_p7pgw"]
+[ext_resource type="PackedScene" uid="uid://bsjnopnp5qi12" path="res://Scenes/Laser/playerLaser.tscn" id="10_kuxid"]
 [ext_resource type="PackedScene" uid="uid://2gv3qb8l4xt0" path="res://Scenes/GameUi/GameUi.tscn" id="11_0d0er"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_j0p05"]
@@ -38,6 +39,9 @@ plane = Plane(-1, 0, 0, 0)
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ng1ea"]
 plane = Plane(0, -1, 0, 0)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ng1ea"]
+size = Vector3(20, 20, 1)
+
 [node name="World" type="Node" unique_id=1661387446]
 script = ExtResource("1_87yka")
 
@@ -62,9 +66,10 @@ wait_time = 3.0
 autostart = true
 
 [node name="Player" parent="." unique_id=854243993 instance=ExtResource("7_87yka")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0069322586, -5.9604645e-08, 0.003786981)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="walls" type="Node3D" parent="." unique_id=1171120472]
+visible = false
 
 [node name="shadedWall" parent="walls" unique_id=515485767 instance=ExtResource("8_p7pgw")]
 transform = Transform3D(-2.1855695e-07, 5, -2.1855695e-07, 0, -2.1855695e-07, -5, -5, -2.1855695e-07, 9.553427e-15, 0, 40, -12)
@@ -100,5 +105,17 @@ shape = SubResource("WorldBoundaryShape3D_ng1ea")
 
 [node name="playerCamera" parent="." unique_id=1654207048 instance=ExtResource("9_p7pgw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0069322586, -5.9604645e-08, 0.003786981)
+
+[node name="playerLaser" parent="." unique_id=802144111 instance=ExtResource("10_kuxid")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.197707)
+speed = 20.0
+
+[node name="staticBody3d" type="StaticBody3D" parent="." unique_id=1740679749]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -21.55928)
+collision_layer = 2
+collision_mask = 0
+
+[node name="collisionShape3d" type="CollisionShape3D" parent="staticBody3d" unique_id=1829782696]
+shape = SubResource("BoxShape3D_ng1ea")
 
 [connection signal="timeout" from="TestTimer" to="." method="_on_test_timer_timeout"]
