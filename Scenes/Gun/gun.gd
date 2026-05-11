@@ -7,6 +7,7 @@ const gunFlash = preload("uid://d1d013gejgyay")
 @export var debounce: float = 0.2
 @export var muzzles: Array[Node3D]
 @export var soundEffect: AudioStream
+@export var laserType: Spawner.LaserTypes = Spawner.LaserTypes.playerLaser
 
 @onready var effect: AudioStreamPlayer3D = $effect
 
@@ -25,6 +26,8 @@ func _ready() -> void:
 func shoot() -> void:
 	if timer > debounce:
 		effect.play()
+		for m in muzzles:
+			SignalHub.emit_CreateLaser(m.global_transform, laserType)
 		for gf in gunFlashes:
 			gf.emitting = true
 		timer = 0.0

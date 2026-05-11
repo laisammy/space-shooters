@@ -16,3 +16,4 @@ script = ExtResource("1_1jwx5")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="time_out" from="LifeTimer" to="." method="_on_life_timer_time_out"]

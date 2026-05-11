@@ -63,21 +63,21 @@ muzzles = [NodePath("../muzzle1"), NodePath("../muzzle2")]
 soundEffect = ExtResource("3_4wape")
 
 [node name="muzzle1" type="Node3D" parent="pivot" unique_id=1981069177]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6578104, -0.22159636, 1.6947278)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.65781015, -0.22159636, -1.6750981)
 
 [node name="muzzle2" type="Node3D" parent="pivot" unique_id=1815322006]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.65483516, -0.22159636, 1.6947278)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6548354, -0.22159636, -1.6750981)
 
 [node name="M3_Ship_3" type="MeshInstance3D" parent="pivot" unique_id=1702444540]
-transform = Transform3D(0.100000024, 0, 0, 0, 0, -0.100000024, 0, 0.100000024, 0, 0, 0, 0)
+transform = Transform3D(-0.100000024, -8.74228e-09, 3.821372e-16, 0, -4.37114e-09, -0.100000024, 8.74228e-09, -0.100000024, 4.37114e-09, 0, 0, 0)
 mesh = SubResource("ArrayMesh_0ql6w")
 skeleton = NodePath("")
 
 [node name="thrust" parent="pivot" unique_id=915050043 instance=ExtResource("3_h54ih")]
-transform = Transform3D(-1, -8.742278e-08, 3.821371e-15, 0, -4.371139e-08, -1, 8.742278e-08, -1, 4.371139e-08, 1.3190271, 0, -1.2188483)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 1.3190268, 0, 1.0691625)
 
 [node name="thrust2" parent="pivot" unique_id=1361824069 instance=ExtResource("3_h54ih")]
-transform = Transform3D(-1, -8.742278e-08, 3.821371e-15, 0, -4.371139e-08, -1, 8.742278e-08, -1, 4.371139e-08, -1.3691167, 0, -1.2188486)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -1.3691169, 0, 1.0691622)
 
 [node name="collisionShape3d" type="CollisionShape3D" parent="." unique_id=1586903678]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 2.388199e-08, -0.5463562)

@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://iws2vud6j45k"]
+[gd_scene format=3 uid="uid://iws2vud6j45k"]
 
 [ext_resource type="Script" uid="uid://dovggq0j4vsxf" path="res://Scenes/LifeTimer/LifeTimer.gd" id="1_dokbk"]
 
-[node name="LifeTimer" type="Node"]
+[node name="LifeTimer" type="Node" unique_id=589386915]
 script = ExtResource("1_dokbk")
+auto_remove = false
+
+[node name="timer" type="Timer" parent="." unique_id=113284090]
+one_shot = true
+
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
