@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b5s5dito4uyp1" path="res://Scenes/Spawner/Spawner.tscn" id="8_kjd5s"]
 [ext_resource type="PackedScene" uid="uid://3rjr52ngqks4" path="res://Scenes/VFX/shadedWall/shadedWall.tscn" id="8_p7pgw"]
 [ext_resource type="PackedScene" uid="uid://biqjyglvo2a3a" path="res://Scenes/playerCamera/playerCamera.tscn" id="9_p7pgw"]
+[ext_resource type="PackedScene" uid="uid://clbsg6ai2sfmg" path="res://Scenes/tieFighter/tieFighter.tscn" id="10_kuxid"]
 [ext_resource type="PackedScene" uid="uid://2gv3qb8l4xt0" path="res://Scenes/GameUi/GameUi.tscn" id="11_0d0er"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_j0p05"]
@@ -69,6 +70,7 @@ wait_time = 3.0
 [node name="Player" parent="." unique_id=854243993 instance=ExtResource("7_87yka")]
 
 [node name="walls" type="Node3D" parent="." unique_id=1171120472]
+visible = false
 
 [node name="shadedWall" parent="walls" unique_id=515485767 instance=ExtResource("8_p7pgw")]
 transform = Transform3D(-2.1855695e-07, 5, -2.1855695e-07, 0, -2.1855695e-07, -5, -5, -2.1855695e-07, 9.553427e-15, 0, 40, -12)
@@ -113,5 +115,8 @@ collision_mask = 0
 [node name="collisionShape3d" type="CollisionShape3D" parent="staticBody3d" unique_id=1829782696]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.490143)
 shape = SubResource("BoxShape3D_ng1ea")
+
+[node name="tieFighter" parent="." unique_id=379938015 instance=ExtResource("10_kuxid")]
+transform = Transform3D(-0.097530805, 0, -0.9952325, 0, 1, 0, 0.9952325, 0, -0.097530805, 0, 0, -42.542637)
 
 [connection signal="timeout" from="TestTimer" to="." method="_on_test_timer_timeout"]

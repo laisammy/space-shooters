@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://clbsg6ai2sfmg"]
+
+[ext_resource type="Script" uid="uid://d1btlweo5hfkf" path="res://Scenes/tieFighter/tieFighter.gd" id="1_c8u3e"]
+[ext_resource type="ArrayMesh" uid="uid://b3pmgibwybfmo" path="res://Scenes/tieFighter/tieFighterModel.res" id="1_tcwpv"]
+[ext_resource type="PackedScene" uid="uid://dbx4srq242e5i" path="res://Scenes/PlayerRef/PlayerRef.tscn" id="5_tcwpv"]
+[ext_resource type="PackedScene" uid="uid://iws2vud6j45k" path="res://Scenes/LifeTimer/LifeTimer.tscn" id="6_c8u3e"]
+[ext_resource type="AudioStream" uid="uid://byn8gkcnre2bp" path="res://Assets/Audio/Effects/658839_TieBlast.wav" id="6_t4357"]
+[ext_resource type="PackedScene" uid="uid://bs5udnhl66eip" path="res://Scenes/Gun/gun.tscn" id="7_c8u3e"]
+[ext_resource type="AudioStream" uid="uid://2hlcjcamn8v4" path="res://Assets/Audio/Effects/703913_flyby.wav" id="9_27xwl"]
+
+[node name="tieFighter" type="Node3D" unique_id=379938015]
+script = ExtResource("1_c8u3e")
+
+[node name="pivot" type="Node3D" parent="." unique_id=206351866]
+
+[node name="TieFighter" type="MeshInstance3D" parent="pivot" unique_id=993104532]
+transform = Transform3D(1, 0, 0, 0, -3.5762787e-07, -0.99999994, 0, 0.99999994, -3.5762787e-07, -0.00896126, 0, -0.0013957022)
+mesh = ExtResource("1_tcwpv")
+skeleton = NodePath("")
+
+[node name="gun" parent="pivot" unique_id=129111583 node_paths=PackedStringArray("muzzles") instance=ExtResource("7_c8u3e")]
+debounce = 0.18
+muzzles = [NodePath("../muzzle1"), NodePath("../muzzle2")]
+soundEffect = ExtResource("6_t4357")
+laserType = 1
+
+[node name="muzzle1" type="Node3D" parent="pivot" unique_id=2066168147]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.454, 0.034219176, 0.3691366)
+
+[node name="muzzle2" type="Node3D" parent="pivot" unique_id=2140478234]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.44429666, 0.034219176, 0.3691366)
+
+[node name="PlayerRef" parent="." unique_id=1813994977 instance=ExtResource("5_tcwpv")]
+
+[node name="LifeTimer" parent="." unique_id=589386915 instance=ExtResource("6_c8u3e")]
+life_time = 20.0
+
+[node name="engineSound" type="AudioStreamPlayer3D" parent="." unique_id=107593113]
+stream = ExtResource("9_27xwl")
+unit_size = 50.0

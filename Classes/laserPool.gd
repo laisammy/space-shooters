@@ -1,5 +1,3 @@
-extends Object
-
 class_name laserPool
 
 var scenesList: Array[laser]

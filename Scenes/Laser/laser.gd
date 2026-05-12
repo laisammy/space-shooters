@@ -57,3 +57,4 @@ func _on_body_entered(body: Node3D) -> void:
 func _on_life_timer_time_out() -> void:
 	print("Laser: _on_life_timer_time_out")
 	stop()
+	

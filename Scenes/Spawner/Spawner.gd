@@ -16,7 +16,7 @@ const IMPACT_FLASH = preload("uid://b2qkayj6h3gnq")
 const PLAYER_LASER = preload("uid://bsjnopnp5qi12")
 
 enum SceneNames { impactFlash }
-enum LaserTypes { playerLaser }
+enum LaserTypes { playerLaser, tieLaser }
 
 const scenesDictionary: Dictionary[int, PackedScene] = {
 	SceneNames.impactFlash: IMPACT_FLASH
