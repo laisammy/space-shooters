@@ -1,0 +1,24 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dk123bygthnlc"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kk5yl"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8u528"]
+noise = SubResource("FastNoiseLite_kk5yl")
+seamless = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_r5u2f"]
+noise = SubResource("FastNoiseLite_kk5yl")
+seamless = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_d83li"]
+noise = SubResource("FastNoiseLite_kk5yl")
+seamless = true
+
+[resource]
+albedo_color = Color(0.6993094, 0.28122878, 0.15866172, 1)
+albedo_texture = SubResource("NoiseTexture2D_8u528")
+roughness = 0.3
+roughness_texture = SubResource("NoiseTexture2D_d83li")
+normal_enabled = true
+normal_scale = -5.0
+normal_texture = SubResource("NoiseTexture2D_r5u2f")

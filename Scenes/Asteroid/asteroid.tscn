@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cfhqha2dcakb"]
+
+[ext_resource type="Script" uid="uid://ba6ynbecmja8o" path="res://Scenes/Asteroid/asteroid.gd" id="1_nknba"]
+[ext_resource type="PackedScene" uid="uid://d3d8o4snb5rnl" path="res://Scenes/hitBox/hitBox.tscn" id="1_ov0aj"]
+[ext_resource type="Material" uid="uid://dk123bygthnlc" path="res://Resources/AsteroidMaterial.tres" id="2_8u528"]
+[ext_resource type="ArrayMesh" uid="uid://1c2hln6k7c5" path="res://Scenes/Asteroid/asteroidMesh.tres" id="2_kk5yl"]
+[ext_resource type="PackedScene" uid="uid://iws2vud6j45k" path="res://Scenes/LifeTimer/LifeTimer.tscn" id="2_nknba"]
+[ext_resource type="PackedScene" uid="uid://csk8e1epbqkrw" path="res://Scenes/VFX/asteroidExplosion/asteroidExplosion.tscn" id="5_d83li"]
+[ext_resource type="PackedScene" uid="uid://c1i4tl4hqvls2" path="res://Scenes/enemyExplode/asteroidExplode.tscn" id="5_r5u2f"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ov0aj"]
+points = PackedVector3Array(-3.3748097, -0.7662585, -0.7450974, -3.3466487, -0.74829435, 0.71267676, -3.0248091, 1.9252529, -2.0320234, -2.7398467, -2.3244605, -1.1542168, -2.3650377, -3.2984347, -0.00017285347, -2.7398467, -2.3244605, 1.1532166, -2.8947322, 2.3235903, 2.1023738, -1.1594796, 3.5881162, -0.14352822, 0.16676807, 3.8786683, -0.53104615, 0.80039024, 3.1155787, -2.464708, 0.0018253326, 2.3235903, -3.0446758, -1.1058397, -2.3244605, -3.4027371, -0.4219303, -4.100577, -1.2982268, -1.3653231, -4.100577, -0.00017285347, -0.5982716, -3.3593569, 1.8339913, -1.0682919, -1.3762615, 3.2682006, -0.23687243, 1.4894247, 2.6286647, -0.61838675, 3.2686653, 1.8405373, -1.3767215, 3.513916, 1.3345382, 0.93985367, 3.5029812, 0.4200747, 3.4750123, 1.6253281, -0.3163402, 1.7866945, 2.3235903, -2.464708, 0.56973815, 0.9020724, -3.419102, 1.5888972, -1.7378893, -2.2899323, 1.0726128, -3.8592312, -0.601742, 1.1034555, -4.100577, 0.8017013, 1.9134192, -2.3244605, 2.4211595, 1.6251044, -0.7787554, 2.3157704, 3.0465631, -1.2880025, 1.4674203, 2.9292254, -2.0846772, 1.0890667, 2.184301, -3.0281901, 1.5872104)
+
+[node name="asteroid" type="Node3D" unique_id=668312168]
+script = ExtResource("1_nknba")
+
+[node name="Icosphere" type="MeshInstance3D" parent="." unique_id=1267615481]
+material_override = ExtResource("2_8u528")
+mesh = ExtResource("2_kk5yl")
+skeleton = NodePath("")
+
+[node name="hitBox" parent="." unique_id=1750353927 instance=ExtResource("1_ov0aj")]
+collision_layer = 2
+shapeResource = SubResource("ConvexPolygonShape3D_ov0aj")
+startHealth = 20
+explosionEffect = ExtResource("5_d83li")
+explosionScene = ExtResource("5_r5u2f")
+
+[node name="LifeTimer" parent="." unique_id=589386915 instance=ExtResource("2_nknba")]
+life_time = 50.0
+
+[connection signal="died" from="hitBox" to="." method="_on_hit_box_died"]
