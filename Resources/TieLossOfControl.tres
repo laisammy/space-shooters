@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="lossOfControl" format=3 uid="uid://blvwms3146av2"]
+
+[ext_resource type="Script" uid="uid://dtgce7vbg7uid" path="res://Scenes/tieFighter/behaviours/lossOfControl.gd" id="1_26yh6"]
+
+[resource]
+script = ExtResource("1_26yh6")
+engineSoundDistance = 30.0
+metadata/_custom_type_script = "uid://dtgce7vbg7uid"

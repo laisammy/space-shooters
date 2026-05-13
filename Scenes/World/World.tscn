@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://biqjyglvo2a3a" path="res://Scenes/playerCamera/playerCamera.tscn" id="9_p7pgw"]
 [ext_resource type="PackedScene" uid="uid://clbsg6ai2sfmg" path="res://Scenes/tieFighter/tieFighter.tscn" id="10_kuxid"]
 [ext_resource type="PackedScene" uid="uid://2gv3qb8l4xt0" path="res://Scenes/GameUi/GameUi.tscn" id="11_0d0er"]
+[ext_resource type="Resource" uid="uid://dqb85ekwyi8w4" path="res://Resources/TieTurnShoot.tres" id="11_ng1ea"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_j0p05"]
 panorama = ExtResource("1_xf6vi")
@@ -117,6 +118,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.490143)
 shape = SubResource("BoxShape3D_ng1ea")
 
 [node name="tieFighter" parent="." unique_id=379938015 instance=ExtResource("10_kuxid")]
-transform = Transform3D(-0.097530805, 0, -0.9952325, 0, 1, 0, 0.9952325, 0, -0.097530805, 0, 0, -42.542637)
+transform = Transform3D(0.99999994, 0, 0, 0, 1.0000001, 0, 0, 0, 1, -30, -30, -248.378)
+enemy_Behaviour = ExtResource("11_ng1ea")
 
 [connection signal="timeout" from="TestTimer" to="." method="_on_test_timer_timeout"]

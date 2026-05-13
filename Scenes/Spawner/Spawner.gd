@@ -11,9 +11,11 @@ class_name Spawner
 @onready var asteroid_timer: Timer = $AsteroidTimer
 
 var playerLaserPool: laserPool
+var tieLaserPool: laserPool
 
 const IMPACT_FLASH = preload("uid://b2qkayj6h3gnq")
 const PLAYER_LASER = preload("uid://bsjnopnp5qi12")
+const TIE_LASER = preload("uid://b4dat3awj1crm")
 
 enum SceneNames { impactFlash }
 enum LaserTypes { playerLaser, tieLaser }
@@ -23,7 +25,8 @@ const scenesDictionary: Dictionary[int, PackedScene] = {
 }
 
 func _ready() -> void:
-	playerLaserPool = laserPool.new(10 , PLAYER_LASER, self, "PlayerLaser")
+	playerLaserPool = laserPool.new(15 , PLAYER_LASER, self, "PlayerLaser")
+	tieLaserPool = laserPool.new(40, TIE_LASER, self, "TieLaser")
 	
 	SignalHub.on_CreateOneOff.connect(on_CreateOneOff)
 	SignalHub.on_CreateLaser.connect(on_CreateLaser)
@@ -53,6 +56,7 @@ func on_CreateOneOff(pPos: Vector3, sceneName: Spawner.SceneNames) -> void:
 func on_CreateLaser(pTr: Transform3D, laserType: Spawner.LaserTypes) -> void:
 	match laserType:
 		LaserTypes.playerLaser: playerLaserPool.activateNextScene(pTr)
+		LaserTypes.tieLaser: tieLaserPool.activateNextScene(pTr)
 
 
 func _on_tie_timer_timeout() -> void:

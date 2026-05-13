@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://b4dat3awj1crm"]
+
+[ext_resource type="PackedScene" uid="uid://blpfum8ldet4f" path="res://Scenes/Laser/laser.tscn" id="1_lxnmx"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lxnmx"]
+radius = 0.15
+height = 1.6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vfppg"]
+shading_mode = 0
+albedo_color = Color(2.3133948, 0, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_8x822"]
+material = SubResource("StandardMaterial3D_vfppg")
+radius = 0.12
+height = 1.5
+
+[node name="tieLaser" unique_id=802144111 instance=ExtResource("1_lxnmx")]
+collision_layer = 2
+collision_mask = 192
+
+[node name="collisionShape3d" parent="." index="1" unique_id=67916462]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_lxnmx")
+
+[node name="meshInstance3d" type="MeshInstance3D" parent="." index="3" unique_id=1213674888]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_8x822")
