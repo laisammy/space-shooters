@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://c1otw18rb0a87"]
+
+[ext_resource type="Script" uid="uid://dkj7t1gxonqji" path="res://Scenes/VFX/tieExplosionEffect/tieExplosionEffect.gd" id="1_bfl0p"]
+[ext_resource type="AudioStream" uid="uid://c0xk8boxwk51q" path="res://Assets/Audio/Effects/646966__tie_explode.wav" id="1_hj68r"]
+[ext_resource type="Texture2D" uid="uid://lrqrpqnjqg88" path="res://Assets/Particles/ParticleDot.png" id="2_bfl0p"]
+
+[sub_resource type="Curve" id="Curve_ihyhw"]
+_data = [Vector2(0, 0.516854), 0.0, 0.0, 0, 0, Vector2(0.30405408, 1), 0.0, 0.0, 0, 0, Vector2(0.5878379, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_pvson"]
+curve = SubResource("Curve_ihyhw")
+
+[sub_resource type="Gradient" id="Gradient_aqwrs"]
+offsets = PackedFloat32Array(0, 0.9836066)
+colors = PackedColorArray(0.8519267, 0.21125157, 0, 1, 1.0334237, 0.7754751, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_c6w0p"]
+gradient = SubResource("Gradient_aqwrs")
+
+[sub_resource type="Gradient" id="Gradient_suxdx"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jj4df"]
+gradient = SubResource("Gradient_suxdx")
+
+[sub_resource type="Curve" id="Curve_72s8b"]
+_data = [Vector2(0, 0.52808994), 0.0, 0.0, 0, 0, Vector2(0.8040541, 1), 0.0, 0.0, 0, 0, Vector2(0.98648655, 0.033707857), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_1jcyt"]
+curve = SubResource("Curve_72s8b")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5y16d"]
+particle_flag_align_y = true
+emission_shape = 2
+emission_sphere_radius = 0.7
+radial_velocity_min = 7.9999776
+radial_velocity_max = 11.999977
+gravity = Vector3(0, 0, 0)
+radial_accel_min = 0.99999774
+radial_accel_max = 1.9999977
+scale_min = 0.59999996
+scale_curve = SubResource("CurveTexture_1jcyt")
+color_ramp = SubResource("GradientTexture1D_jj4df")
+color_initial_ramp = SubResource("GradientTexture1D_c6w0p")
+alpha_curve = SubResource("CurveTexture_pvson")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5y20i"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_bfl0p")
+
+[sub_resource type="QuadMesh" id="QuadMesh_qw03t"]
+material = SubResource("StandardMaterial3D_5y20i")
+size = Vector2(0.1, 1.6)
+
+[node name="tieExplosionEffect" type="Node3D" unique_id=1909212326]
+script = ExtResource("1_bfl0p")
+
+[node name="explode" type="AudioStreamPlayer3D" parent="." unique_id=574293298]
+stream = ExtResource("1_hj68r")
+unit_size = 30.0
+autoplay = true
+
+[node name="sparks" type="GPUParticles3D" parent="." unique_id=1687333502]
+emitting = false
+amount = 64
+lifetime = 0.8
+one_shot = true
+explosiveness = 0.85
+process_material = SubResource("ParticleProcessMaterial_5y16d")
+draw_pass_1 = SubResource("QuadMesh_qw03t")

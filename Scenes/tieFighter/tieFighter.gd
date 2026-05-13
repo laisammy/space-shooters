@@ -39,3 +39,7 @@ func shootBurst() -> void:
 		await get_tree().create_timer(0.6).timeout
 		shoot()
 		await get_tree().create_timer(0.3).timeout
+
+
+func _on_hit_box_died() -> void:
+	queue_free()

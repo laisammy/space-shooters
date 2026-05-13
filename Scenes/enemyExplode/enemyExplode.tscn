@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ram62kpd02c2"]
+
+[ext_resource type="Script" uid="uid://bxy5s32sei7xf" path="res://Scenes/enemyExplode/enemyExplode.gd" id="1_ofptn"]
+
+[node name="enemyExplode" type="Node3D" unique_id=554602185]
+script = ExtResource("1_ofptn")

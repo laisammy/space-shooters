@@ -109,7 +109,7 @@ shape = SubResource("WorldBoundaryShape3D_ng1ea")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0069322586, -5.9604645e-08, 0.003786981)
 
 [node name="staticBody3d" type="StaticBody3D" parent="." unique_id=1740679749]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -21.55928)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.984692, 0, -21.55928)
 collision_layer = 2
 collision_mask = 0
 
@@ -118,7 +118,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.490143)
 shape = SubResource("BoxShape3D_ng1ea")
 
 [node name="tieFighter" parent="." unique_id=379938015 instance=ExtResource("10_kuxid")]
-transform = Transform3D(0.99999994, 0, 0, 0, 1.0000001, 0, 0, 0, 1, -30, -30, -248.378)
+transform = Transform3D(0.99999994, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 0, 0, -23.450962)
+stayStill = true
 enemy_Behaviour = ExtResource("11_ng1ea")
 
 [connection signal="timeout" from="TestTimer" to="." method="_on_test_timer_timeout"]

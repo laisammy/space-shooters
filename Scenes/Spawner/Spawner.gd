@@ -30,6 +30,7 @@ func _ready() -> void:
 	
 	SignalHub.on_CreateOneOff.connect(on_CreateOneOff)
 	SignalHub.on_CreateLaser.connect(on_CreateLaser)
+	SignalHub.on_CreatePackedScene.connect(on_create_packed_scene)
 
 
 func add_with_transform(ob: Node3D, p_tr: Transform3D) -> void:
