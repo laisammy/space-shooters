@@ -2,6 +2,8 @@
 ## Made for Hack Club's Resolution Game Dev Pathway
 This is a third person shooter game made in Godot 4.6.1. You play as a fighter jet in space shooting enemy jets and asteroids down.
 
+Note: Game lags a bit when you first start playing, please give it some time to load fully :)
+
 Week 8's features:
 - Tie Fighter behaviour & hitbox
 - Asteroids
