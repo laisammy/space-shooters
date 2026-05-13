@@ -4,12 +4,9 @@
 
 [node name="Spawner" type="Node3D" unique_id=1020238828]
 script = ExtResource("1_sop60")
-x_range = null
-y_range = null
-enabled = null
 
 [node name="TieTimer" type="Timer" parent="." unique_id=1489386267]
-wait_time = 3.0
+wait_time = 5.0
 one_shot = true
 autostart = true
 

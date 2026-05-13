@@ -2,6 +2,10 @@ extends Node3D
 
 class_name tieFighter
 
+const TIE_JUST_FLY = preload("uid://cbksn5aylbx6m")
+const TIE_LOSS_OF_CONTROL = preload("uid://blvwms3146av2")
+const TIE_TURN_SHOOT = preload("uid://dqb85ekwyi8w4")
+
 # @export var speed: float = 40.0
 # @export var engineSoundDistance: float = 100.0
 @export var stayStill: bool = false
@@ -12,9 +16,18 @@ class_name tieFighter
 @onready var gun: gun = $pivot/gun
 @onready var modelMesh: MeshInstance3D = $pivot/TieFighter
 
+func chooseRandomBehaviour() -> void:
+	var r: float = randf()
+	if r < 0.2:
+		enemy_Behaviour = TIE_LOSS_OF_CONTROL.duplicate(true)
+	elif r < 0.8:
+		enemy_Behaviour = TIE_TURN_SHOOT.duplicate(true)
+	else:
+		enemy_Behaviour = TIE_JUST_FLY.duplicate(true)
+	enemy_Behaviour.setup(self)
+
 func _ready() -> void:
-	if enemy_Behaviour:
-		enemy_Behaviour.setup(self)
+	chooseRandomBehaviour()
 	facePlayer()
 
 func _physics_process(delta: float) -> void:
